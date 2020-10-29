@@ -6,7 +6,6 @@ body {
 h1 {
   font-family: "Roboto", sans-serif;
   font-size: 24px;
-  text-align: center;
   font-weight: 700;
 }
 
@@ -39,6 +38,11 @@ body {
   width: 375px;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 *,
 *::after,
 *::before {
@@ -49,6 +53,23 @@ body {
 
 body {
   box-sizing: border-box;
+}
+
+form button {
+  height: 50px;
+  background: linear-gradient(-5deg, #9356DC, #FF79DA);
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  border: none;
+  border-radius: 25px;
+  padding: 0 25px;
+  margin: 29px 0;
+  box-shadow: 0px 2px 10px #7e7e7e;
 }
 
 .head {
@@ -117,15 +138,35 @@ form > p i {
 }
 
 form {
+  width: 100%;
   height: 337px;
   background: #f6f6f6;
 }
 
 form div {
-  height: 287px;
+  width: 100%;
+  padding: 38px 0;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  align-items: center;
+}
+form div h1 {
+  width: 75%;
+  margin-bottom: 11px;
+  position: relative;
+  left: -8px;
+}
+form div p {
+  font-size: 18px;
+  font-weight: 300;
+  color: #353535;
+  position: relative;
+  left: 4px;
+}
+form div button {
+  position: relative;
+  left: 4px;
 }
 
 .fonct {
@@ -185,17 +226,16 @@ form div {
   padding: 54px 20px 46px 20px;
 }
 .resto h2 {
-  margin-bottom: 22px;
+  margin-bottom: 21px;
 }
 .resto a {
   width: 100%;
-  text-decoration: none;
   color: black;
 }
 .resto__fig {
   width: 100%;
   border-radius: 15px;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   box-shadow: 2px 4px 6px #dedede;
   background: white;
   position: relative;
@@ -227,7 +267,7 @@ form div {
 }
 .resto__fig__cap {
   padding: 12px 0 0 12px;
-  height: 75px;
+  height: 73px;
   width: 100%;
   position: relative;
 }
