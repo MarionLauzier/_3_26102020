@@ -1,0 +1,244 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Shrikhand&display=swap");
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  text-align: center;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+h4 {
+  font-family: "Shrikhand", cursive;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+button {
+  font-size: 15px;
+}
+
+figcaption p {
+  font-size: 17px;
+  font-weight: 300;
+}
+
+body {
+  width: 375px;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+.head {
+  width: 100%;
+  height: 55px;
+  margin-top: 8px;
+  background: url("../img/ohmyfood2x.svg") no-repeat center;
+  background-size: 200px 28px;
+}
+.head__arrow {
+  margin-left: 20px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+}
+.head__arrow a {
+  text-decoration: none;
+}
+.head__arrow a i {
+  color: #353535;
+  font-size: 19px;
+}
+.head__arrow--hidden {
+  display: none;
+}
+
+.foot {
+  width: 100%;
+  background-color: #353535;
+  color: white;
+  padding: 22px 25px 30px 25px;
+}
+.foot__head {
+  margin-bottom: 17px;
+}
+.foot__cont {
+  list-style-type: none;
+}
+.foot__cont li {
+  padding-bottom: 8px;
+  font-size: 16px;
+}
+.foot__cont li i {
+  font-size: 13px;
+  padding-right: 19px;
+}
+
+form > p {
+  height: 50px;
+  width: 100%;
+  background: #ebebeb;
+  box-shadow: inset 0 3px 5px -6px black;
+  color: #353535;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 500;
+  position: relative;
+}
+form > p i {
+  display: block;
+  position: absolute;
+  left: 28%;
+}
+
+form {
+  height: 337px;
+  background: #f6f6f6;
+}
+
+form div {
+  height: 287px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.fonct {
+  padding: 48px 20px 47px 20px;
+}
+.fonct ol {
+  width: 100%;
+  list-style: none;
+  counter-reset: li;
+  margin-top: 25px;
+  padding-left: 10px;
+}
+.fonct ol li {
+  counter-increment: li;
+  width: 100%;
+  height: 75px;
+  background: #f6f6f6;
+  margin: 0 0 22px 0px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-shadow: 2px 5px 12px #dedede;
+}
+.fonct ol li::before {
+  content: counter(li);
+  color: white;
+  background: #9356DC;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 400;
+  width: 25px;
+  height: 25px;
+  margin: 0 0 0 -10px;
+  padding: 2px 0 0 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.fonct ol li:last-of-type {
+  background-color: #f5edff;
+}
+.fonct ol li:last-of-type i {
+  color: #9356DC;
+}
+.fonct ol li i {
+  font-size: 18px;
+  width: 19%;
+  color: #7e7e7e;
+}
+
+.resto {
+  background: #f6f6f6;
+  padding: 54px 20px 46px 20px;
+}
+.resto h2 {
+  margin-bottom: 22px;
+}
+.resto a {
+  width: 100%;
+  text-decoration: none;
+  color: black;
+}
+.resto__fig {
+  width: 100%;
+  border-radius: 15px;
+  margin-bottom: 16px;
+  box-shadow: 2px 4px 6px #dedede;
+  background: white;
+  position: relative;
+}
+.resto__fig__img {
+  width: 100%;
+  object-fit: cover;
+  object-position: bottom;
+  height: 174px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.resto__fig__img--pos {
+  object-position: 50% 61%;
+}
+.resto__fig__new {
+  background: #99E2D0;
+  color: #008766;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  width: 80px;
+  height: 30px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 30px;
+}
+.resto__fig__cap {
+  padding: 12px 0 0 12px;
+  height: 75px;
+  width: 100%;
+  position: relative;
+}
+.resto__fig__cap h3 {
+  margin-bottom: 2px;
+}
+.resto__fig__cap__heart {
+  font-size: 23px;
+  position: absolute;
+  bottom: 45%;
+  right: 23px;
+}
+
+/*# sourceMappingURL=style.css.map */
