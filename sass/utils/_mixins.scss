@@ -11,3 +11,10 @@
 	align-items: center;
 	// justify-content: center;
 }
+@function mult3($arg) {
+	@if ($arg%3) ==0 {
+		@return 3;
+	} @else {
+		@return ($arg % 3);
+	}
+}

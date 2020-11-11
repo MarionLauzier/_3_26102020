@@ -10,42 +10,65 @@
 
 .menu {
 	background: map-get($greys, lighter);
-	border-radius: 40px;
+	border-top-left-radius: 40px;
+	border-top-right-radius: 40px;
 	margin-top: -40px;
 	position: relative;
-	padding: 31px 14px 0 14px;
+	padding: 31px 14px calc(79px - 29px) 14px;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
 	& h1 {
 		padding-left: 6px;
 		margin-bottom: 30px;
 		position: relative;
+		align-self:flex-start;
+		width:347px;
+		// display:flex;
+		// justify-content:flex-end;
+	
 
 		& .fa-heart {
-			right: 23px;
+			
+			right:23px;
 			font-size: 23px;
 			margin-top: 7px;
+			// padding-right: 2px;
+			
 		}
 	}
 	& h2 {
 		padding-left: 6px;
-		margin-bottom: 5px;
-	}
-	& .underline {
-		background: $col-ter;
-		height: 3px;
-		width: 40px;
-		margin-left: 6px;
+		margin-bottom: 8px;
+		position: relative;
+		align-self:flex-start;
+
+		&::after {
+			content: "";
+			display: inline-block;
+			background: $col-ter;
+			height: 3px;
+			width: 40px;
+
+			position: absolute;
+			left: 6px;
+			bottom: -8px;
+		}
 	}
 	&__content {
 		list-style-type: none;
 		padding-top: 14px;
+		padding-bottom:25px;
 
 		& li {
 			background: white;
 			border-radius: 12px;
 			box-shadow: 0px 2px 8px map-get($greys, medium);
 			height: 70px;
+			width:347px;
 			overflow: hidden;
 			display: grid;
+			margin-bottom:12px;
 
 			// justify-content: space-between;
 			grid-template-columns: repeat(3, auto);
@@ -54,21 +77,18 @@
 				grid-column: 1/2;
 				width: 300px;
 				padding: 12px 10px;
-				transition: transform 400ms linear;
-				transform: translateX(0);
+				transition: width 400ms ease-out;
+				// transform: translateX(0);
 				// transform:scaleX(1);
 				// transform-origin: left;
-				overflow: hidden;
-				white-space: nowrap;
-				z-index: 3;
-				text-overflow: ellipsis;
 
-				& h3 {
-					transform: translateX(0);
+				& h3,
+				p {
+					// transform: translateX(0);
 					// transform: scalex(1);
 					// transform-origin: left;
-					transition: transform 400ms linear;
-					
+					// transition: transform 400ms linear;
+					width: 100%;
 					white-space: nowrap;
 					overflow: hidden;
 					text-overflow: ellipsis;
@@ -76,12 +96,12 @@
 				& p {
 					padding-top: 3px;
 					// transform: scalex(1);
-					transform: translateX(0);
-					transition: transform 400ms linear;
+					// transform: translateX(0);
+					// transition: transform 400ms linear;
 					font-size: 15px;
 					font-weight: 300;
 					// position: relative;
-					width: 100%;
+
 					// overflow: hidden;
 				}
 			}
@@ -93,8 +113,8 @@
 				display: flex;
 				align-items: flex-end;
 				width: 47px;
-				transition: transform 400ms linear;
-				transform: translateX(0);
+				// transition: transform 400ms linear;
+				// transform: translateX(0);
 
 				// position: absolute;
 				// right: 0px;
@@ -108,32 +128,42 @@
 				font-size: 20px;
 				height: 100%;
 				width: 60px;
-				transition: transform 400ms linear;
-				transform: translateX(0);
+				// transition: transform 400ms linear;
+				// transform: translateX(0);
 				& i {
 					display: inline-block;
-					transition: transform 400ms linear;
+					transition: transform 400ms ease-out;
 					transform: rotate(0deg);
 				}
 			}
-			&:hover .check {
-				transform: translateX(-60px);
-				& i {
+			// &:hover .check {
+			// 	// transform: translateX(-60px);
+			// 	& i {
+			// 		transform: rotate(360deg);
+			// 	}
+			// }
+			// &:hover .price {
+			// 	transform: translateX(-60px);
+			// }
+			&:hover {
+				cursor: pointer;
+				& .dish {
+					width: calc(300px - 60px);
+				}
+				& .check i {
 					transform: rotate(360deg);
 				}
 			}
-			&:hover .price {
-				transform: translateX(-60px);
-			}
-			&:hover .dish {
-				transform: translateX(-60px);
-				// transform: scaleX(0.8);
-				& h3,
-				p {
-					transform: translateX(60px);
-					// transform: scaleX(1.25);
-				}
-			}
+
+			// transform: translateX(-60px);
+			// transform: scaleX(0.8);
+			// 	& h3,
+			// 	p {
+			// 		transform: translateX(60px);
+			// 		transform: scaleX(1.25);
+			// 	}
 		}
+	}
+	& button {width:188px;
 	}
 }

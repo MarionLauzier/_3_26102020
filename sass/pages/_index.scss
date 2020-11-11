@@ -1,4 +1,4 @@
-form > p {
+.location > p {
 	height: 50px;
 	width: 100%;
 	background: map-get($greys, light);
@@ -23,12 +23,12 @@ form > p {
 	// 	position: absolute; left:28%;
 	// }
 }
-form {
+.location {
 	width: 100%;
 	height: 337px;
 	background: map-get($greys, lighter);
 }
-form div {
+.location div {
 	width: 100%;
 	padding: 38px 0;
 	text-align: center;
@@ -48,6 +48,7 @@ form div {
 		position: relative;
 		left: 4px;
 	}
+	& a {cursor: default;}
 	& button {
 		position: relative;
 		left: 4px;
@@ -166,5 +167,112 @@ form div {
 				right: 23px;
 			}
 		}
+	}
+}
+
+.spinner {
+	height: 100vh;
+	width: 375px;
+	background: rgba($col-sec, 0.3);
+	position: fixed;
+	top: 0;
+	z-index: 2;
+	animation: fade 200ms 2.8s linear forwards, removes 0s 3s forwards;
+	@include centerblock;
+	&__dot {
+		height: 20px;
+		width: 20px;
+		border-radius: 50%;
+		margin: 0 10px;
+		$anim-dur: 400ms;
+		animation: bounce $anim-dur alternate infinite ease;
+		
+		position: relative;
+		&::before {
+			content: "";
+			display: inline-block;
+			height: 20px;
+			width: 20px;
+			border-radius: 50%;
+			opacity: 0;
+		}
+		&::after {
+			content: "";
+			display: inline-block;
+			height: 20px;
+			width: 20px;
+			border-radius: 50%;
+			position: relative;
+			top: -24px;
+			opacity: 0;
+		}
+		@for $i from 1 through 3 {
+			$delay: ($i - 1) * $anim-dur / 4;
+			&:nth-of-type(#{$i}) {
+				background: map-get($colors, $i);
+				animation-delay: $delay;
+
+				&::before {
+					background: map-get($colors, mult3(($i + 1)));
+					animation: seccolorchange (3 * $anim-dur) $delay step-end infinite;
+				}
+
+				&::after {
+					background: map-get($colors, mult3(($i + 2)));
+					animation: tercolorchange (3 * $anim-dur) $delay step-end infinite;
+				}
+			}
+		}
+	}
+}
+@keyframes fade {
+	from {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 0;
+		// z-index: -1;
+	}
+}
+@keyframes removes {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-9999px);
+	}
+}
+@keyframes seccolorchange {
+	0% {
+		opacity: 0;
+	}
+	33% {
+		opacity: 1;
+	}
+	66%,
+	100% {
+		opacity: 0;
+	}
+}
+@keyframes tercolorchange {
+	0% {
+		opacity: 0;
+	}
+	66% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+@keyframes bounce {
+	0% {
+		transform: translateY(0);
+	}
+	// 50% {transform: translateY(-40px)
+	// 	animation-timing;}
+	100% {
+		transform: translateY(-50px);
 	}
 }

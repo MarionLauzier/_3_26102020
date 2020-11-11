@@ -1,6 +1,7 @@
 $col-prim: #9356DC;
 $col-sec: #FF79DA;
 $col-ter: #99E2D0;
+$colors: (1:$col-prim, 2:$col-sec, 3:$col-ter);
 
 $greys: (lighter:lighten(black, 96.5%), 
         light:lighten(black, 92%) ,

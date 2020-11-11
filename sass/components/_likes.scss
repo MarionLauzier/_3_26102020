@@ -12,12 +12,15 @@
 		-webkit-text-stroke: 0px;
 		position: absolute;
 		left: -0.2px;
-		top: -0.3px;
+		// top: -0.3px;
+		
+		top:0px;
 		transform: scale(1);
 		opacity: 0;
 		transition: opacity 500ms ease, transform 500ms ease;
 	}
 	&:hover {
+		cursor: pointer;
 		&::after {
 			opacity: 1;
 			transform: scale(1.07);

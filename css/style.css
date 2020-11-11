@@ -88,6 +88,7 @@ button {
   padding: 0 25px;
   margin: 29px 0;
   box-shadow: 0px 2px 10px #7e7e7e;
+  cursor: pointer;
 }
 
 .fa-heart {
@@ -104,10 +105,13 @@ button {
   -webkit-text-stroke: 0px;
   position: absolute;
   left: -0.2px;
-  top: -0.3px;
+  top: 0px;
   transform: scale(1);
   opacity: 0;
   transition: opacity 500ms ease, transform 500ms ease;
+}
+.fa-heart:hover {
+  cursor: pointer;
 }
 .fa-heart:hover::after {
   opacity: 1;
@@ -171,15 +175,21 @@ button {
 
 .menu {
   background: #f6f6f6;
-  border-radius: 40px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
   margin-top: -40px;
   position: relative;
-  padding: 31px 14px 0 14px;
+  padding: 31px 14px calc(79px - 29px) 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .menu h1 {
   padding-left: 6px;
   margin-bottom: 30px;
   position: relative;
+  align-self: flex-start;
+  width: 347px;
 }
 .menu h1 .fa-heart {
   right: 23px;
@@ -188,52 +198,53 @@ button {
 }
 .menu h2 {
   padding-left: 6px;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
+  position: relative;
+  align-self: flex-start;
 }
-.menu .underline {
+.menu h2::after {
+  content: "";
+  display: inline-block;
   background: #99E2D0;
   height: 3px;
   width: 40px;
-  margin-left: 6px;
+  position: absolute;
+  left: 6px;
+  bottom: -8px;
 }
 .menu__content {
   list-style-type: none;
   padding-top: 14px;
+  padding-bottom: 25px;
 }
 .menu__content li {
   background: white;
   border-radius: 12px;
   box-shadow: 0px 2px 8px #dedede;
   height: 70px;
+  width: 347px;
   overflow: hidden;
   display: grid;
+  margin-bottom: 12px;
   grid-template-columns: repeat(3, auto);
 }
 .menu__content li .dish {
   grid-column: 1/2;
   width: 300px;
   padding: 12px 10px;
-  transition: transform 400ms linear;
-  transform: translateX(0);
-  overflow: hidden;
-  white-space: nowrap;
-  z-index: 3;
-  text-overflow: ellipsis;
+  transition: width 400ms ease-out;
 }
-.menu__content li .dish h3 {
-  transform: translateX(0);
-  transition: transform 400ms linear;
+.menu__content li .dish h3,
+.menu__content li .dish p {
+  width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 .menu__content li .dish p {
   padding-top: 3px;
-  transform: translateX(0);
-  transition: transform 400ms linear;
   font-size: 15px;
   font-weight: 300;
-  width: 100%;
 }
 .menu__content li .price {
   padding-bottom: 13px;
@@ -243,8 +254,6 @@ button {
   display: flex;
   align-items: flex-end;
   width: 47px;
-  transition: transform 400ms linear;
-  transform: translateX(0);
 }
 .menu__content li .check {
   grid-column: 3/4;
@@ -257,32 +266,26 @@ button {
   font-size: 20px;
   height: 100%;
   width: 60px;
-  transition: transform 400ms linear;
-  transform: translateX(0);
 }
 .menu__content li .check i {
   display: inline-block;
-  transition: transform 400ms linear;
+  transition: transform 400ms ease-out;
   transform: rotate(0deg);
 }
-.menu__content li:hover .check {
-  transform: translateX(-60px);
+.menu__content li:hover {
+  cursor: pointer;
+}
+.menu__content li:hover .dish {
+  width: calc(300px - 60px);
 }
 .menu__content li:hover .check i {
   transform: rotate(360deg);
 }
-.menu__content li:hover .price {
-  transform: translateX(-60px);
-}
-.menu__content li:hover .dish {
-  transform: translateX(-60px);
-}
-.menu__content li:hover .dish h3,
-.menu__content li:hover .dish p {
-  transform: translateX(60px);
+.menu button {
+  width: 188px;
 }
 
-form > p {
+.location > p {
   height: 50px;
   width: 100%;
   background: #ebebeb;
@@ -296,19 +299,19 @@ form > p {
   font-weight: 500;
   position: relative;
 }
-form > p i {
+.location > p i {
   display: block;
   position: absolute;
   left: 28%;
 }
 
-form {
+.location {
   width: 100%;
   height: 337px;
   background: #f6f6f6;
 }
 
-form div {
+.location div {
   width: 100%;
   padding: 38px 0;
   text-align: center;
@@ -316,20 +319,23 @@ form div {
   flex-direction: column;
   align-items: center;
 }
-form div h1 {
+.location div h1 {
   width: 75%;
   margin-bottom: 11px;
   position: relative;
   left: -8px;
 }
-form div p {
+.location div p {
   font-size: 18px;
   font-weight: 300;
   color: #353535;
   position: relative;
   left: 4px;
 }
-form div button {
+.location div a {
+  cursor: default;
+}
+.location div button {
   position: relative;
   left: 4px;
 }
@@ -444,6 +450,129 @@ form div button {
   position: absolute;
   bottom: 45%;
   right: 23px;
+}
+
+.spinner {
+  height: 100vh;
+  width: 375px;
+  background: rgba(255, 121, 218, 0.3);
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  animation: fade 200ms 2.8s linear forwards, removes 0s 3s forwards;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.spinner__dot {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  margin: 0 10px;
+  animation: bounce 400ms alternate infinite ease;
+  position: relative;
+}
+.spinner__dot::before {
+  content: "";
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  opacity: 0;
+}
+.spinner__dot::after {
+  content: "";
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  position: relative;
+  top: -24px;
+  opacity: 0;
+}
+.spinner__dot:nth-of-type(1) {
+  background: #9356DC;
+  animation-delay: 0ms;
+}
+.spinner__dot:nth-of-type(1)::before {
+  background: #FF79DA;
+  animation: seccolorchange 1200ms 0ms step-end infinite;
+}
+.spinner__dot:nth-of-type(1)::after {
+  background: #99E2D0;
+  animation: tercolorchange 1200ms 0ms step-end infinite;
+}
+.spinner__dot:nth-of-type(2) {
+  background: #FF79DA;
+  animation-delay: 100ms;
+}
+.spinner__dot:nth-of-type(2)::before {
+  background: #99E2D0;
+  animation: seccolorchange 1200ms 100ms step-end infinite;
+}
+.spinner__dot:nth-of-type(2)::after {
+  background: #9356DC;
+  animation: tercolorchange 1200ms 100ms step-end infinite;
+}
+.spinner__dot:nth-of-type(3) {
+  background: #99E2D0;
+  animation-delay: 200ms;
+}
+.spinner__dot:nth-of-type(3)::before {
+  background: #9356DC;
+  animation: seccolorchange 1200ms 200ms step-end infinite;
+}
+.spinner__dot:nth-of-type(3)::after {
+  background: #FF79DA;
+  animation: tercolorchange 1200ms 200ms step-end infinite;
+}
+
+@keyframes fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes removes {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-9999px);
+  }
+}
+@keyframes seccolorchange {
+  0% {
+    opacity: 0;
+  }
+  33% {
+    opacity: 1;
+  }
+  66%, 100% {
+    opacity: 0;
+  }
+}
+@keyframes tercolorchange {
+  0% {
+    opacity: 0;
+  }
+  66% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50px);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
