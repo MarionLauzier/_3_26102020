@@ -1,5 +1,5 @@
 .topimg {
-	height: 260px;
+	height: 270px;
 	width: 100%;
 	& img {
 		width: 100%;
@@ -12,7 +12,7 @@
 	background: map-get($greys, lighter);
 	border-top-left-radius: 40px;
 	border-top-right-radius: 40px;
-	margin-top: -40px;
+	margin-top: -50px;
 	position: relative;
 	padding: 31px 14px calc(79px - 29px) 14px;
 	display:flex;
@@ -59,6 +59,8 @@
 		list-style-type: none;
 		padding-top: 14px;
 		padding-bottom:25px;
+		& .taller--p {height:85px;}
+		& .taller--h3 {height:90px;}
 
 		& li {
 			background: white;
@@ -72,6 +74,16 @@
 
 			// justify-content: space-between;
 			grid-template-columns: repeat(3, auto);
+			$menu-loader-dur:700ms;
+			$menu-loader-delay:200ms;
+
+			animation: fade reverse ease-out $menu-loader-dur backwards, menuloader ease-out $menu-loader-dur forwards;
+			@for $i from 1 through 4 {				
+				&:nth-of-type(#{$i}) {
+					animation-delay: $i * $menu-loader-delay;
+				}
+			}
+			
 
 			& .dish {
 				grid-column: 1/2;
@@ -166,4 +178,10 @@
 	}
 	& button {width:188px;
 	}
+}
+@keyframes menuloader{
+	from {
+	transform: translateY(20px);}
+	
+	to{transform: translateY(0px);}
 }
