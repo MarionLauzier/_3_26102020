@@ -4,7 +4,8 @@
   "description": "Openclassrooms développeur web projet 3",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch ./sass/main.scss:./css/style.css"
+    "sass": "sass --watch ./sass/main.scss:./css/style.css",
+    "prefix": "postcss ./css/style.css --use autoprefixer -d ./css/"
   },
   "repository": {
     "type": "git",
@@ -12,6 +13,7 @@
   },
   "author": "",
   "license": "ISC",
+  "browserslist": "last 2 versions",
   "bugs": {
     "url": "https://github.com/MarionLauzier/_3_26102020/issues"
   },
