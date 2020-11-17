@@ -1,10 +1,42 @@
-$col-prim: #9356DC;
-$col-sec: #FF79DA;
-$col-ter: #99E2D0;
-$colors: (1:$col-prim, 2:$col-sec, 3:$col-ter);
+//maps and variables to handle color more easily
+$col-prim: #9356dc;
+$col-sec: #ff79da;
+$col-ter: #99e2d0;
+$colors: (
+	1: $col-prim,
+	2: $col-sec,
+	3: $col-ter,
+);
 
-$greys: (lighter:lighten(black, 96.5%), 
-        light:lighten(black, 92%) ,
-        medium: lighten(black, 87%),
-        dark: lighten(black, 49.5%),
-        darker: lighten(black, 20.7%) ) ;
+$greys: (
+	lighter: lighten(black, 96.5%),
+	light: lighten(black, 92%),
+	medium: lighten(black, 87%),
+	dark: lighten(black, 49.5%),
+	darker: lighten(black, 20.7%),
+);
+
+//maps and variables to handle font formatting more easily
+$fontweights: (
+	light: 300,
+	reg: 400,
+	medium: 500,
+	bold: 700,
+);
+
+//maps and variables to handle block size formatting more easily
+$menublockwidth: calculateRem(347px);
+$dishblockwidth: calculateRem(300px);
+$checkblockwidth: 60px;
+
+//maps and variables to handle animation timings more easily
+$bounce-dur: 400ms;
+$check-dur: 400ms;
+$menu-loader-dur: 700ms;
+$menu-loader-delay: 200ms;
+
+//maps and variables to responsive design more easily
+$breakpoints: (
+	tablet: 600px,
+	desktop: 1280px,
+);

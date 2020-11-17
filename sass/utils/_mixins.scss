@@ -1,20 +1,31 @@
-@mixin centerblock {
+// mixins for block formatting
+@mixin centerblock($justify) {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	justify-content: center;
+	justify-content: $justify;
 }
 
-@mixin centerblock2 {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	// justify-content: center;
+@mixin reducewidth($width) {
+	width: $width;
+	margin-left: auto;
+	margin-right: auto;
 }
-@function mult3($arg) {
-	@if ($arg%3) ==0 {
-		@return 3;
-	} @else {
-		@return ($arg % 3);
+
+// mixin for font formatting
+@mixin font($szpx, $wg) {
+	font-weight: map-get($fontweights, $wg);
+	font-size: calculateRem($szpx);
+}
+
+//mixin for media queries
+@mixin screensize($size) {
+	@media all and (min-width: map-get($breakpoints, $size)) {
+		@content;
+	}
+}
+@mixin tablet-only {
+	@media all and (min-width: map-get($breakpoints, tablet)) and (max-width: (map-get($breakpoints, desktop)-0.5px)) {
+		@content;
 	}
 }

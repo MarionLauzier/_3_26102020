@@ -1,29 +1,33 @@
 button {
-	height: 50px;
-	background:linear-gradient(-5deg, $col-prim, $col-sec);
-	
+	height: calculateRem(50px);
+	background: linear-gradient(-5deg, $col-prim, $col-sec);
 	color: white;
-	@include centerblock;
-	font-weight: 700;
-	font-size: 14px;
+	@include centerblock(center);
+	@include font(14px, bold);
 	border: none;
-	border-radius: 25px;
+	border-radius: calculateRem(25px);
 	padding: 0 25px;
 	margin: 29px 0;
 	box-shadow: 0px 2px 10px map-get($greys, dark);
-	cursor:pointer;
-	transition: all 200ms;
-	position:relative;
-	width:224px;
-	&::before { content:""; position:absolute; background-color:white;
-	opacity:0;
-	width:inherit;
-	height:inherit; 
-	border-radius:inherit;
-	transition: all 200ms;}
+	cursor: pointer;
+	transition: all 300ms;
+	position: relative;
+	width: calculateRem(224px);
+	// a white transparent pseudo element to generate a lighter background on the hover effect
+	&::before {
+		content: "";
+		position: absolute;
+		background-color: white;
+		opacity: 0;
+		width: inherit;
+		height: inherit;
+		border-radius: inherit;
+		transition: all 300ms;
+	}
 	&:hover {
-		// background:linear-gradient(-5deg, lighten($col-prim,10%), lighten($col-sec, 10%));
 		box-shadow: 0px 2px 10px black;
-		&::before { opacity:0.3; }
+		&::before {
+			opacity: 0.3;
+		}
 	}
 }

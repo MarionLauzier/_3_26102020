@@ -1,80 +1,72 @@
-.location > p {
-	height: 50px;
-	width: 100%;
-	background: map-get($greys, light);
-	box-shadow: inset 0 3px 5px -6px black;
-	// text-align: center;
-	color: map-get($greys, darker);
-	@include centerblock;
-	// display: flex;
-	// align-items: center;
-	// justify-content: center;
-	font-size: 16px;
-	font-weight: 500;
-	position: relative;
-	& i {
-		display: block;
-		position: absolute;
-		left: 28%;
-	}
-	// 	&::before { font-family: "Font Awesome 5 Free";
-	// 		font-weight: 900;
-	// 		content: "\f3c5"; display:block;
-	// 	position: absolute; left:28%;
-	// }
-}
+//location section formatting
 .location {
 	width: 100%;
-	height: 337px;
 	background: map-get($greys, lighter);
-}
-.location div {
-	width: 100%;
-	padding: 38px 0;
-	text-align: center;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	& h1 {
-		width: 75%;
-		margin-bottom: 11px;
-		position: relative;
-		left: -8px;
-	}
-	& p {
-		font-size: 18px;
-		font-weight: 300;
+	& > p {
+		height: calculateRem(50px);
+		width: 100%;
+		background: map-get($greys, light);
+		box-shadow: inset 0 3px 5px -6px black;
 		color: map-get($greys, darker);
+		@include centerblock(center);
+		@include font(16px, medium);
 		position: relative;
-		left: 4px;
+		& i {
+			display: block;
+			position: absolute;
+			left: calc(50% - #{calculateRem(82px)});
+		}
 	}
-	& a {cursor: default;}
-	& button {
-		position: relative;
-		left: 4px;
+	& div {
+		width: 100%;
+		padding-top: 38px;
+		padding-bottom: 28px;
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		& h1 {
+			width: 75%;
+			margin-bottom: 11px;
+			position: relative;
+			left: -8px;
+		}
+		& p {
+			@include font(18px, light);
+			color: map-get($greys, darker);
+			position: relative;
+			left: 4px;
+			width: 90%;
+		}
+		& a {
+			cursor: default;
+		}
+		& button {
+			position: relative;
+			left: 4px;
+		}
 	}
-	// 	height: 287px;
-
-	// 	justify-content: space-around;
 }
+
+//fonctionnement section formatting
 .fonct {
-	padding: 48px 20px 47px 20px;
+	padding: 48px 5.3% 47px 5.3%;
 	& ol {
 		width: 100%;
 		list-style: none;
 		counter-reset: li;
 		margin-top: 25px;
 		padding-left: 10px;
+
 		& li {
 			counter-increment: li;
 			width: 100%;
-			height: 75px;
+			max-width: calculateRem(350px);
+			height: calculateRem(75px);
 			background: map-get($greys, lighter);
-			margin: 0 0 22px 0px;
-			font-size: 16px;
-			font-weight: 500;
+			margin: 0 auto 22px auto;
 			border-radius: 20px;
-			@include centerblock2;
+			@include centerblock(flex-start);
 			box-shadow: 2px 5px 12px map-get($greys, medium);
 
 			&::before {
@@ -82,13 +74,12 @@
 				color: white;
 				background: $col-prim;
 				border-radius: 50%;
-				font-size: 14px;
-				font-weight: 400;
-				width: 25px;
-				height: 25px;
-				margin: 0 0 0 -10px;
+				@include font(14px, reg);
+				width: calculateRem(25px);
+				height: calculateRem(25px);
+				margin: 0 0 0 calculateRem(-10px);
 				padding: 2px 0 0 0;
-				@include centerblock;
+				@include centerblock(center);
 			}
 			&:last-of-type {
 				background-color: adjust-color(
@@ -101,23 +92,31 @@
 				}
 			}
 			& i {
-				font-size: 18px;
+				font-size: calculateRem(18px);
 				width: 19%;
 				color: map-get($greys, dark);
 			}
 		}
 	}
 }
-
+// restaurant section formatting
 .resto {
 	background: map-get($greys, lighter);
-	padding: 54px 20px 46px 20px;
-	// border:solid 1px black;
+	padding: 54px 5.3% 46px 5.3%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
 	& h2 {
 		margin-bottom: 21px;
+		min-width: 100%;
 	}
 	& a {
+		display: block;
 		width: 100%;
+		@include screensize(tablet) {
+			width: 48%;
+		}
 		color: black;
 	}
 	&__fig {
@@ -131,7 +130,7 @@
 			width: 100%;
 			object-fit: cover;
 			object-position: bottom;
-			height: 174px;
+			height: calculateRem(174px);
 			border-top-left-radius: 15px;
 			border-top-right-radius: 15px;
 			&--pos {
@@ -142,26 +141,24 @@
 			background: $col-ter;
 			color: saturate(darken($col-ter, 47.75%), 50%);
 			position: absolute;
-			top: 12px;
-			right: 12px;
-			font-size: 14px;
-			font-weight: 500;
-			width: 80px;
-			height: 30px;
+			top: calculateRem(12px);
+			right: calculateRem(12px);
+			@include font(14px, medium);
+			width: calculateRem(80px);
+			height: calculateRem(30px);
 			text-align: center;
-			vertical-align: middle;
-			line-height: 30px;
+			line-height: calculateRem(30px); //to center text line-height=height
 		}
 		&__cap {
 			padding: 12px 0 0 12px;
-			height: 73px;
+			height: calculateRem(73px);
 			width: 100%;
 			position: relative;
 			& h3 {
-				margin-bottom: 2px;
+				margin-bottom: calculateRem(2px);
 			}
 			&__heart {
-				font-size: 23px;
+				font-size: calculateRem(23px);
 				position: absolute;
 				bottom: 45%;
 				right: 23px;
@@ -170,56 +167,68 @@
 	}
 }
 
+//spinner design
 .spinner {
 	height: 100vh;
-	width: 375px;
+	width: inherit;
 	background: rgba($col-sec, 0.3);
 	position: fixed;
 	top: 0;
 	z-index: 2;
+	@include centerblock(center);
+	//display of spinner for 3s which then fades aways and is moved out of the screen
 	animation: fade 200ms 2.8s linear forwards, removes 0s 3s forwards;
-	@include centerblock;
+
+	//generation of three superimposed blocks with pseudo-elements before and after to handle color changes with opacity only of each dot
 	&__dot {
 		height: 20px;
 		width: 20px;
 		border-radius: 50%;
 		margin: 0 10px;
-		$anim-dur: 400ms;
-		animation: bounce $anim-dur alternate infinite ease;
-		
+		// each dot is bouncing infinitely through a translate keyframes
+		animation: bounce $bounce-dur alternate infinite ease;
+
 		position: relative;
 		&::before {
 			content: "";
-			display: inline-block;
-			height: 20px;
-			width: 20px;
-			border-radius: 50%;
+			display: block;
+			height: inherit;
+			width: inherit;
+			border-radius: inherit;
 			opacity: 0;
 		}
 		&::after {
 			content: "";
-			display: inline-block;
-			height: 20px;
-			width: 20px;
-			border-radius: 50%;
-			position: relative;
-			top: -24px;
+			display: block;
+			height: inherit;
+			width: inherit;
+			border-radius: inherit;
+			position: absolute;
+			top: 0px;
 			opacity: 0;
 		}
+
+		//loop to generate delay between each dot and to change the color at each bounce:
+		//dot1 : Purple, Pink, Green
+		//dot2 : Pink, Green, Purple
+		//dot3 : Green, Purple, Pink
+		//second color is the before element color and it appears by changing its opacity to 1 for the time of the bounce of the given color with seccolorchange keyframes
+		//third color is the after element color and it appears by changing its opacity to 1 for the time of the bounce of the given color with tercolorchange keyframes
+
 		@for $i from 1 through 3 {
-			$delay: ($i - 1) * $anim-dur / 4;
+			$delay: ($i - 1) * $bounce-dur / 4;
 			&:nth-of-type(#{$i}) {
 				background: map-get($colors, $i);
 				animation-delay: $delay;
 
 				&::before {
 					background: map-get($colors, mult3(($i + 1)));
-					animation: seccolorchange (3 * $anim-dur) $delay step-end infinite;
+					animation: seccolorchange (3 * $bounce-dur) $delay step-end infinite;
 				}
 
 				&::after {
 					background: map-get($colors, mult3(($i + 2)));
-					animation: tercolorchange (3 * $anim-dur) $delay step-end infinite;
+					animation: tercolorchange (3 * $bounce-dur) $delay step-end infinite;
 				}
 			}
 		}
@@ -232,7 +241,6 @@
 
 	to {
 		opacity: 0;
-		// z-index: -1;
 	}
 }
 @keyframes removes {
@@ -241,6 +249,14 @@
 	}
 	to {
 		transform: translateX(-9999px);
+	}
+}
+@keyframes bounce {
+	0% {
+		transform: translateY(0);
+	}
+	100% {
+		transform: translateY(-50px);
 	}
 }
 @keyframes seccolorchange {
@@ -264,15 +280,5 @@
 	}
 	100% {
 		opacity: 0;
-	}
-}
-@keyframes bounce {
-	0% {
-		transform: translateY(0);
-	}
-	// 50% {transform: translateY(-40px)
-	// 	animation-timing;}
-	100% {
-		transform: translateY(-50px);
 	}
 }

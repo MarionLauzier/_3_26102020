@@ -1,6 +1,13 @@
+//FORMATTING OF THE MENU LAYOUT OF EACH RESTAURANT PAGE
 .topimg {
 	height: 270px;
 	width: 100%;
+	@include tablet-only {
+		@include reducewidth(80%);
+	}
+	@include screensize(desktop) {
+		height: 35vh;
+	}
 	& img {
 		width: 100%;
 		height: 100%;
@@ -14,92 +21,106 @@
 	border-top-right-radius: 40px;
 	margin-top: -50px;
 	position: relative;
-	padding: 31px 14px calc(79px - 29px) 14px;
-	display:flex;
-	flex-direction:column;
-	align-items:center;
+	padding: 31px 3.7% (79px - 29px) 3.7%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	//media queries for tablet and desktop where each type of dish is formmatted in a column
+	@include screensize(tablet) {
+		@include reducewidth(70%);
+	}
+	@include screensize(desktop) {
+		@include reducewidth(90%);
+		padding-left: 3%;
+		padding-right: 3%;
+		display: grid;
+		grid-template-columns: repeat(3, auto);
+		grid-template-rows: repeat(4, auto);
+		grid-template-areas: "resto resto resto" ". . ." ". . ." "bouton bouton bouton";
+		grid-auto-flow: column;
+		justify-content: space-evenly;
+		align-items: start;
+	}
 	& h1 {
 		padding-left: 6px;
 		margin-bottom: 30px;
 		position: relative;
-		align-self:flex-start;
-		width:347px;
-		// display:flex;
-		// justify-content:flex-end;
-	
-
+		align-self: flex-start;
+		width: $menublockwidth;
+		@include screensize(desktop) {
+			grid-area: resto;
+		}
 		& .fa-heart {
-			
-			right:23px;
-			font-size: 23px;
+			right: calculateRem(23px);
+			font-size: calculateRem(23px);
 			margin-top: 7px;
-			// padding-right: 2px;
-			
 		}
 	}
 	& h2 {
 		padding-left: 6px;
+		width: 100%;
 		margin-bottom: 8px;
 		position: relative;
-		align-self:flex-start;
-
+		align-self: flex-start;
+		@include tablet-only {
+			padding-left: calc(50% - (#{$menublockwidth} / 2) + 6px);
+		}
+		// green underline
 		&::after {
 			content: "";
 			display: inline-block;
 			background: $col-ter;
-			height: 3px;
-			width: 40px;
+			height: calculateRem(3px);
+			width: calculateRem(40px);
 
 			position: absolute;
 			left: 6px;
+			@include tablet-only {
+				left: calc(50% - (#{$menublockwidth} / 2) + 6px);
+			}
 			bottom: -8px;
 		}
 	}
 	&__content {
 		list-style-type: none;
 		padding-top: 14px;
-		padding-bottom:25px;
-		& .taller--p {height:85px;}
-		& .taller--h3 {height:90px;}
+		padding-bottom: 25px;
+
+		& .taller--p {
+			height: calculateRem(85px);
+		}
+		& .taller--h3 {
+			height: calculateRem(90px);
+		}
 
 		& li {
 			background: white;
 			border-radius: 12px;
 			box-shadow: 0px 2px 8px map-get($greys, medium);
-			height: 70px;
-			width:347px;
+			height: calculateRem(70px);
+			width: $menublockwidth;
 			overflow: hidden;
 			display: grid;
-			margin-bottom:12px;
-
-			// justify-content: space-between;
+			margin-bottom: 12px;
 			grid-template-columns: repeat(3, auto);
-			$menu-loader-dur:700ms;
-			$menu-loader-delay:200ms;
-
-			animation: fade reverse ease-out $menu-loader-dur backwards, menuloader ease-out $menu-loader-dur forwards;
-			@for $i from 1 through 4 {				
+			animation: fade reverse ease-out $menu-loader-dur backwards,
+				menuloader ease-out $menu-loader-dur forwards;
+			//addition of a longer delay foreach dish so that they can appear one at a time
+			@for $i from 1 through 4 {
 				&:nth-of-type(#{$i}) {
 					animation-delay: $i * $menu-loader-delay;
 				}
 			}
-			
 
 			& .dish {
 				grid-column: 1/2;
-				width: 300px;
+				width: $dishblockwidth;
 				padding: 12px 10px;
-				transition: width 400ms ease-out;
-				// transform: translateX(0);
-				// transform:scaleX(1);
-				// transform-origin: left;
+				transition: width $check-dur ease-out;
 
 				& h3,
 				p {
-					// transform: translateX(0);
-					// transform: scalex(1);
-					// transform-origin: left;
-					// transition: transform 400ms linear;
 					width: 100%;
 					white-space: nowrap;
 					overflow: hidden;
@@ -107,81 +128,57 @@
 				}
 				& p {
 					padding-top: 3px;
-					// transform: scalex(1);
-					// transform: translateX(0);
-					// transition: transform 400ms linear;
-					font-size: 15px;
-					font-weight: 300;
-					// position: relative;
-
-					// overflow: hidden;
 				}
 			}
 			& .price {
 				padding-bottom: 13px;
 				grid-column: 2/3;
-				font-size: 15px;
-				font-weight: 700;
 				display: flex;
 				align-items: flex-end;
-				width: 47px;
-				// transition: transform 400ms linear;
-				// transform: translateX(0);
-
-				// position: absolute;
-				// right: 0px;
+				width: calc(#{$menublockwidth} - #{$dishblockwidth});
 			}
-
+			// (dish + price)width = li block width therefore check block is outside and hence hidden when li block is not hovered
 			& .check {
 				grid-column: 3/4;
 				background: $col-ter;
 				color: white;
-				@include centerblock;
+				@include centerblock(center);
 				font-size: 20px;
 				height: 100%;
-				width: 60px;
-				// transition: transform 400ms linear;
-				// transform: translateX(0);
+				width: $checkblockwidth;
 				& i {
 					display: inline-block;
-					transition: transform 400ms ease-out;
+					transition: transform $check-dur ease-out;
 					transform: rotate(0deg);
 				}
 			}
-			// &:hover .check {
-			// 	// transform: translateX(-60px);
-			// 	& i {
-			// 		transform: rotate(360deg);
-			// 	}
-			// }
-			// &:hover .price {
-			// 	transform: translateX(-60px);
-			// }
+
 			&:hover {
 				cursor: pointer;
 				& .dish {
-					width: calc(300px - 60px);
+					width: calc(#{$dishblockwidth} - #{$checkblockwidth});
+					//reducing the size of the dish block of the size of the check block when li block hovered allows the check block to appear
 				}
 				& .check i {
 					transform: rotate(360deg);
 				}
 			}
-
-			// transform: translateX(-60px);
-			// transform: scaleX(0.8);
-			// 	& h3,
-			// 	p {
-			// 		transform: translateX(60px);
-			// 		transform: scaleX(1.25);
-			// 	}
 		}
 	}
-	& button {width:188px;
+	& button {
+		width: calculateRem(188px);
+		@include screensize(desktop) {
+			grid-area: bouton;
+			justify-self: center;
+		}
 	}
 }
-@keyframes menuloader{
+@keyframes menuloader {
 	from {
-	transform: translateY(20px);}
-	
-	to{transform: translateY(0px);}
+		transform: translateY(20px);
+	}
+
+	to {
+		transform: translateY(0px);
+	}
 }

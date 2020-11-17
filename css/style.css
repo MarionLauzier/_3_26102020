@@ -6,54 +6,69 @@ body {
 
 h1 {
   font-family: "Roboto", sans-serif;
-  font-size: 24px;
   font-weight: 700;
+  font-size: 1.5rem;
 }
 
 .menu h1 {
   font-family: "Shrikhand", cursive;
-  font-size: 28px;
   font-weight: 400;
+  font-size: 1.75rem;
 }
 
 h2 {
-  font-size: 24px;
   font-weight: 700;
+  font-size: 1.5rem;
 }
 
 .menu h2 {
-  font-size: 16px;
   font-weight: 300;
+  font-size: 1rem;
   text-transform: uppercase;
 }
 
 h3 {
-  font-size: 18px;
   font-weight: 700;
-}
-
-h5 {
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 1.125rem;
 }
 
 h4 {
   font-family: "Shrikhand", cursive;
-  font-size: 18px;
   font-weight: 400;
+  font-size: 1.125rem;
 }
 
-button {
-  font-size: 15px;
+.fonct li {
+  font-weight: 500;
+  font-size: 1rem;
 }
 
 figcaption p {
-  font-size: 17px;
   font-weight: 300;
+  font-size: 1.0625rem;
+}
+
+.dish p {
+  font-weight: 300;
+  font-size: 0.9375rem;
+}
+
+.price {
+  font-weight: 700;
+  font-size: 0.9375rem;
 }
 
 body {
-  width: 375px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media all and (min-width: 1280px) {
+  main {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 a {
@@ -69,29 +84,25 @@ a {
   box-sizing: inherit;
 }
 
-body {
-  box-sizing: border-box;
-}
-
 button {
-  height: 50px;
-  background: linear-gradient(-5deg, #9356DC, #FF79DA);
+  height: 3.125rem;
+  background: linear-gradient(-5deg, #9356dc, #ff79da);
   color: white;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 0.875rem;
   border: none;
-  border-radius: 25px;
+  border-radius: 1.5625rem;
   padding: 0 25px;
   margin: 29px 0;
   box-shadow: 0px 2px 10px #7e7e7e;
   cursor: pointer;
-  transition: all 200ms;
+  transition: all 300ms;
   position: relative;
-  width: 224px;
+  width: 14rem;
 }
 button::before {
   content: "";
@@ -101,7 +112,7 @@ button::before {
   width: inherit;
   height: inherit;
   border-radius: inherit;
-  transition: all 200ms;
+  transition: all 300ms;
 }
 button:hover {
   box-shadow: 0px 2px 10px black;
@@ -119,7 +130,7 @@ button:hover::before {
   content: "";
   font-family: "Font Awesome 5 Free";
   color: transparent;
-  background: linear-gradient(0deg, #FF79DA, #9356DC);
+  background: linear-gradient(0deg, #ff79da, #9356dc);
   -webkit-background-clip: text;
   -webkit-text-stroke: 0px;
   position: absolute;
@@ -139,14 +150,21 @@ button:hover::before {
 
 .head {
   width: 100%;
-  height: 55px;
+  height: 3.4375rem;
   margin-top: 8px;
   background: url("../img/ohmyfood2x.svg") no-repeat center;
-  background-size: 200px 28px;
+  background-size: 12.5rem 1.75rem;
+}
+@media all and (min-width: 600px) and (max-width: 1279.5px) {
+  .head {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 .head__arrow {
-  margin-left: 23px;
-  height: 55px;
+  margin-left: 1.4375rem;
+  height: 3.4375rem;
   display: flex;
   align-items: center;
 }
@@ -155,19 +173,19 @@ button:hover::before {
 }
 .head__arrow a i {
   color: #353535;
-  font-size: 19px;
+  font-size: 1.1875rem;
   position: relative;
 }
 .head__arrow a i::after {
   content: "";
   position: absolute;
-  left: -11px;
-  top: -10px;
+  left: -0.6875rem;
+  top: -0.625rem;
   background: #dedede;
   border-radius: 50%;
   display: inline-block;
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
   z-index: -1;
   opacity: 0;
   transform: scale(0);
@@ -177,7 +195,7 @@ button:hover::before {
   opacity: 1;
   transform: scale(1);
 }
-.head--hidden {
+.head__arrow--hidden {
   display: none;
 }
 
@@ -185,7 +203,7 @@ button:hover::before {
   width: 100%;
   background-color: #353535;
   color: white;
-  padding: 22px 25px 30px 25px;
+  padding: 22px 6.6% 30px 6.6%;
 }
 .foot__head {
   margin-bottom: 17px;
@@ -193,18 +211,45 @@ button:hover::before {
 .foot__cont {
   list-style-type: none;
 }
+@media all and (min-width: 600px) {
+  .foot__cont {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-auto-flow: column;
+  }
+}
+@media all and (min-width: 1280px) {
+  .foot__cont {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+  }
+}
 .foot__cont li {
   padding-bottom: 8px;
-  font-size: 16px;
+  font-weight: 400;
+  font-size: 1rem;
 }
 .foot__cont li i {
-  font-size: 13px;
+  font-size: 0.8125rem;
   padding-right: 19px;
 }
 
 .topimg {
   height: 270px;
   width: 100%;
+}
+@media all and (min-width: 600px) and (max-width: 1279.5px) {
+  .topimg {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media all and (min-width: 1280px) {
+  .topimg {
+    height: 35vh;
+  }
 }
 .topimg img {
   width: 100%;
@@ -218,38 +263,77 @@ button:hover::before {
   border-top-right-radius: 40px;
   margin-top: -50px;
   position: relative;
-  padding: 31px 14px calc(79px - 29px) 14px;
+  padding: 31px 3.7% 50px 3.7%;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+@media all and (min-width: 600px) {
+  .menu {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media all and (min-width: 1280px) {
+  .menu {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 3%;
+    padding-right: 3%;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas: "resto resto resto" ". . ." ". . ." "bouton bouton bouton";
+    grid-auto-flow: column;
+    justify-content: space-evenly;
+    align-items: start;
+  }
 }
 .menu h1 {
   padding-left: 6px;
   margin-bottom: 30px;
   position: relative;
   align-self: flex-start;
-  width: 347px;
+  width: 21.6875rem;
+}
+@media all and (min-width: 1280px) {
+  .menu h1 {
+    grid-area: resto;
+  }
 }
 .menu h1 .fa-heart {
-  right: 23px;
-  font-size: 23px;
+  right: 1.4375rem;
+  font-size: 1.4375rem;
   margin-top: 7px;
 }
 .menu h2 {
   padding-left: 6px;
+  width: 100%;
   margin-bottom: 8px;
   position: relative;
   align-self: flex-start;
 }
+@media all and (min-width: 600px) and (max-width: 1279.5px) {
+  .menu h2 {
+    padding-left: calc(50% - (21.6875rem / 2) + 6px);
+  }
+}
 .menu h2::after {
   content: "";
   display: inline-block;
-  background: #99E2D0;
-  height: 3px;
-  width: 40px;
+  background: #99e2d0;
+  height: 0.1875rem;
+  width: 2.5rem;
   position: absolute;
   left: 6px;
   bottom: -8px;
+}
+@media all and (min-width: 600px) and (max-width: 1279.5px) {
+  .menu h2::after {
+    left: calc(50% - (21.6875rem / 2) + 6px);
+  }
 }
 .menu__content {
   list-style-type: none;
@@ -257,17 +341,17 @@ button:hover::before {
   padding-bottom: 25px;
 }
 .menu__content .taller--p {
-  height: 85px;
+  height: 5.3125rem;
 }
 .menu__content .taller--h3 {
-  height: 90px;
+  height: 5.625rem;
 }
 .menu__content li {
   background: white;
   border-radius: 12px;
   box-shadow: 0px 2px 8px #dedede;
-  height: 70px;
-  width: 347px;
+  height: 4.375rem;
+  width: 21.6875rem;
   overflow: hidden;
   display: grid;
   margin-bottom: 12px;
@@ -288,7 +372,7 @@ button:hover::before {
 }
 .menu__content li .dish {
   grid-column: 1/2;
-  width: 300px;
+  width: 18.75rem;
   padding: 12px 10px;
   transition: width 400ms ease-out;
 }
@@ -301,21 +385,17 @@ button:hover::before {
 }
 .menu__content li .dish p {
   padding-top: 3px;
-  font-size: 15px;
-  font-weight: 300;
 }
 .menu__content li .price {
   padding-bottom: 13px;
   grid-column: 2/3;
-  font-size: 15px;
-  font-weight: 700;
   display: flex;
   align-items: flex-end;
-  width: 47px;
+  width: calc(21.6875rem - 18.75rem);
 }
 .menu__content li .check {
   grid-column: 3/4;
-  background: #99E2D0;
+  background: #99e2d0;
   color: white;
   display: flex;
   flex-direction: row;
@@ -334,13 +414,19 @@ button:hover::before {
   cursor: pointer;
 }
 .menu__content li:hover .dish {
-  width: calc(300px - 60px);
+  width: calc(18.75rem - 60px);
 }
 .menu__content li:hover .check i {
   transform: rotate(360deg);
 }
 .menu button {
-  width: 188px;
+  width: 11.75rem;
+}
+@media all and (min-width: 1280px) {
+  .menu button {
+    grid-area: bouton;
+    justify-self: center;
+  }
 }
 
 @keyframes menuloader {
@@ -351,8 +437,12 @@ button:hover::before {
     transform: translateY(0px);
   }
 }
+.location {
+  width: 100%;
+  background: #f6f6f6;
+}
 .location > p {
-  height: 50px;
+  height: 3.125rem;
   width: 100%;
   background: #ebebeb;
   box-shadow: inset 0 3px 5px -6px black;
@@ -361,25 +451,19 @@ button:hover::before {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
   font-weight: 500;
+  font-size: 1rem;
   position: relative;
 }
 .location > p i {
   display: block;
   position: absolute;
-  left: 28%;
+  left: calc(50% - 5.125rem);
 }
-
-.location {
-  width: 100%;
-  height: 337px;
-  background: #f6f6f6;
-}
-
 .location div {
   width: 100%;
-  padding: 38px 0;
+  padding-top: 38px;
+  padding-bottom: 28px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -392,11 +476,12 @@ button:hover::before {
   left: -8px;
 }
 .location div p {
-  font-size: 18px;
   font-weight: 300;
+  font-size: 1.125rem;
   color: #353535;
   position: relative;
   left: 4px;
+  width: 90%;
 }
 .location div a {
   cursor: default;
@@ -407,7 +492,7 @@ button:hover::before {
 }
 
 .fonct {
-  padding: 48px 20px 47px 20px;
+  padding: 48px 5.3% 47px 5.3%;
 }
 .fonct ol {
   width: 100%;
@@ -419,27 +504,27 @@ button:hover::before {
 .fonct ol li {
   counter-increment: li;
   width: 100%;
-  height: 75px;
+  max-width: 21.875rem;
+  height: 4.6875rem;
   background: #f6f6f6;
-  margin: 0 0 22px 0px;
-  font-size: 16px;
-  font-weight: 500;
+  margin: 0 auto 22px auto;
   border-radius: 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: flex-start;
   box-shadow: 2px 5px 12px #dedede;
 }
 .fonct ol li::before {
   content: counter(li);
   color: white;
-  background: #9356DC;
+  background: #9356dc;
   border-radius: 50%;
-  font-size: 14px;
   font-weight: 400;
-  width: 25px;
-  height: 25px;
-  margin: 0 0 0 -10px;
+  font-size: 0.875rem;
+  width: 1.5625rem;
+  height: 1.5625rem;
+  margin: 0 0 0 -0.625rem;
   padding: 2px 0 0 0;
   display: flex;
   flex-direction: row;
@@ -450,24 +535,35 @@ button:hover::before {
   background-color: #f5edff;
 }
 .fonct ol li:last-of-type i {
-  color: #9356DC;
+  color: #9356dc;
 }
 .fonct ol li i {
-  font-size: 18px;
+  font-size: 1.125rem;
   width: 19%;
   color: #7e7e7e;
 }
 
 .resto {
   background: #f6f6f6;
-  padding: 54px 20px 46px 20px;
+  padding: 54px 5.3% 46px 5.3%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 .resto h2 {
   margin-bottom: 21px;
+  min-width: 100%;
 }
 .resto a {
+  display: block;
   width: 100%;
   color: black;
+}
+@media all and (min-width: 600px) {
+  .resto a {
+    width: 48%;
+  }
 }
 .resto__fig {
   width: 100%;
@@ -481,7 +577,7 @@ button:hover::before {
   width: 100%;
   object-fit: cover;
   object-position: bottom;
-  height: 174px;
+  height: 10.875rem;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
@@ -489,30 +585,29 @@ button:hover::before {
   object-position: 50% 61%;
 }
 .resto__fig__new {
-  background: #99E2D0;
+  background: #99e2d0;
   color: #008766;
   position: absolute;
-  top: 12px;
-  right: 12px;
-  font-size: 14px;
+  top: 0.75rem;
+  right: 0.75rem;
   font-weight: 500;
-  width: 80px;
-  height: 30px;
+  font-size: 0.875rem;
+  width: 5rem;
+  height: 1.875rem;
   text-align: center;
-  vertical-align: middle;
-  line-height: 30px;
+  line-height: 1.875rem;
 }
 .resto__fig__cap {
   padding: 12px 0 0 12px;
-  height: 73px;
+  height: 4.5625rem;
   width: 100%;
   position: relative;
 }
 .resto__fig__cap h3 {
-  margin-bottom: 2px;
+  margin-bottom: 0.125rem;
 }
 .resto__fig__cap__heart {
-  font-size: 23px;
+  font-size: 1.4375rem;
   position: absolute;
   bottom: 45%;
   right: 23px;
@@ -520,16 +615,16 @@ button:hover::before {
 
 .spinner {
   height: 100vh;
-  width: 375px;
+  width: inherit;
   background: rgba(255, 121, 218, 0.3);
   position: fixed;
   top: 0;
   z-index: 2;
-  animation: fade 200ms 2.8s linear forwards, removes 0s 3s forwards;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  animation: fade 200ms 2.8s linear forwards, removes 0s 3s forwards;
 }
 .spinner__dot {
   height: 20px;
@@ -541,56 +636,56 @@ button:hover::before {
 }
 .spinner__dot::before {
   content: "";
-  display: inline-block;
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
+  display: block;
+  height: inherit;
+  width: inherit;
+  border-radius: inherit;
   opacity: 0;
 }
 .spinner__dot::after {
   content: "";
-  display: inline-block;
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  position: relative;
-  top: -24px;
+  display: block;
+  height: inherit;
+  width: inherit;
+  border-radius: inherit;
+  position: absolute;
+  top: 0px;
   opacity: 0;
 }
 .spinner__dot:nth-of-type(1) {
-  background: #9356DC;
+  background: #9356dc;
   animation-delay: 0ms;
 }
 .spinner__dot:nth-of-type(1)::before {
-  background: #FF79DA;
+  background: #ff79da;
   animation: seccolorchange 1200ms 0ms step-end infinite;
 }
 .spinner__dot:nth-of-type(1)::after {
-  background: #99E2D0;
+  background: #99e2d0;
   animation: tercolorchange 1200ms 0ms step-end infinite;
 }
 .spinner__dot:nth-of-type(2) {
-  background: #FF79DA;
+  background: #ff79da;
   animation-delay: 100ms;
 }
 .spinner__dot:nth-of-type(2)::before {
-  background: #99E2D0;
+  background: #99e2d0;
   animation: seccolorchange 1200ms 100ms step-end infinite;
 }
 .spinner__dot:nth-of-type(2)::after {
-  background: #9356DC;
+  background: #9356dc;
   animation: tercolorchange 1200ms 100ms step-end infinite;
 }
 .spinner__dot:nth-of-type(3) {
-  background: #99E2D0;
+  background: #99e2d0;
   animation-delay: 200ms;
 }
 .spinner__dot:nth-of-type(3)::before {
-  background: #9356DC;
+  background: #9356dc;
   animation: seccolorchange 1200ms 200ms step-end infinite;
 }
 .spinner__dot:nth-of-type(3)::after {
-  background: #FF79DA;
+  background: #ff79da;
   animation: tercolorchange 1200ms 200ms step-end infinite;
 }
 
@@ -608,6 +703,14 @@ button:hover::before {
   }
   to {
     transform: translateX(-9999px);
+  }
+}
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50px);
   }
 }
 @keyframes seccolorchange {
@@ -630,14 +733,6 @@ button:hover::before {
   }
   100% {
     opacity: 0;
-  }
-}
-@keyframes bounce {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-50px);
   }
 }
 

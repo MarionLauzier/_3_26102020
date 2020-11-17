@@ -5,58 +5,35 @@ body {
 }
 h1 {
 	font-family: "Roboto", sans-serif;
-	font-size: 24px;
-	font-weight: 700;
+	@include font(24px, bold);
 }
-.menu h1 { font-family: "Shrikhand", cursive;
-	font-size: 28px;
-	font-weight: 400;}
+.menu h1 {
+	font-family: "Shrikhand", cursive;
+	@include font(28px, reg);
+}
 h2 {
-	font-size: 24px;
-	font-weight: 700;
+	@include font(24px, bold);
 }
 .menu h2 {
-	font-size: 16px;
-	font-weight: 300;
-	text-transform:uppercase;
+	@include font(16px, light);
+	text-transform: uppercase;
 }
 h3 {
-	font-size: 18px;
-	font-weight: 700;
+	@include font(18px, bold);
 }
-h5 { font-size: 14px;
-	font-weight: 700;}
-
 h4 {
 	font-family: "Shrikhand", cursive;
-	font-size: 18px;
-	font-weight: 400;
+	@include font(18px, reg);
 }
-button {
-	font-size: 15px;
+.fonct li {
+	@include font(16px, medium);
 }
 figcaption p {
-	font-size: 17px;
-	font-weight: 300;
+	@include font(17px, light);
 }
-body {
-	width: 375px;
-	// border: solid black 1px;
+.dish p {
+	@include font(15px, light);
 }
-a {
-	text-decoration: none;
-	color: inherit;
+.price {
+	@include font(15px, bold);
 }
-*,
-*::after,
-*::before {
-	margin: 0;
-	padding: 0;
-	box-sizing: inherit;
-}
-
-body {
-	box-sizing: border-box;
-}
-
-// font-family: 'Shrikhand', cursive;
