@@ -9,7 +9,7 @@
 		font-family: "Font Awesome 5 Free";
 		color: transparent;
 		background: linear-gradient(0deg, $col-sec, $col-prim);
-		background-clip: text;
+		-webkit-background-clip: text;
 		-webkit-text-stroke: 0px; //remove black contour
 		position: absolute;
 		left: -0.2px;

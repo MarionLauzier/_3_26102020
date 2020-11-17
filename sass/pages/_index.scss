@@ -17,7 +17,7 @@
 			left: calc(50% - #{calculateRem(82px)});
 		}
 	}
-	& div {
+	& form {
 		width: 100%;
 		padding-top: 38px;
 		padding-bottom: 28px;
@@ -37,9 +37,6 @@
 			position: relative;
 			left: 4px;
 			width: 90%;
-		}
-		& a {
-			cursor: default;
 		}
 		& button {
 			position: relative;
